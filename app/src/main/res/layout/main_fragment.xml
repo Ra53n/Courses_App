@@ -1,14 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    android:background="@color/black_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/timer"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_margin="@dimen/margin_medium"
+            app:cardCornerRadius="@dimen/corner_radius_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/timer_background">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/timerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="@string/are_you_ready_for_exams"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:layout_constraintTop_toBottomOf="@id/timerTitle">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/daysFirst"
+                        style="@style/TimerNumber"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="@dimen/margin_large"
+                        app:layout_constraintEnd_toStartOf="@id/daysSecond"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="0" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/daysSecond"
+                        style="@style/TimerNumber"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintEnd_toStartOf="@id/timerDotsFirst"
+                        app:layout_constraintStart_toEndOf="@id/daysFirst"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="9" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TimerNumberSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:text="@string/days"
+                        app:layout_constraintEnd_toEndOf="@id/daysSecond"
+                        app:layout_constraintStart_toStartOf="@id/daysFirst"
+                        app:layout_constraintTop_toBottomOf="@id/daysFirst" />
+
+                    <include
+                        android:id="@+id/timerDotsFirst"
+                        layout="@layout/timer_dots"
+                        android:layout_width="@dimen/timer_dots_width"
+                        android:layout_height="@dimen/timer_dots_height"
+                        app:layout_constraintBottom_toBottomOf="@id/daysSecond"
+                        app:layout_constraintEnd_toStartOf="@id/hoursFirst"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toEndOf="@id/daysSecond"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/hoursFirst"
+                        style="@style/TimerNumber"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintEnd_toStartOf="@id/hoursSecond"
+                        app:layout_constraintStart_toEndOf="@id/timerDotsFirst"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/hoursSecond"
+                        style="@style/TimerNumber"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintEnd_toStartOf="@id/timerDotsSecond"
+                        app:layout_constraintStart_toEndOf="@id/hoursFirst"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="3" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TimerNumberSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:text="@string/hours"
+                        app:layout_constraintEnd_toEndOf="@id/hoursSecond"
+                        app:layout_constraintStart_toStartOf="@id/hoursFirst"
+                        app:layout_constraintTop_toBottomOf="@id/hoursFirst" />
+
+                    <include
+                        android:id="@+id/timerDotsSecond"
+                        layout="@layout/timer_dots"
+                        android:layout_width="@dimen/timer_dots_width"
+                        android:layout_height="@dimen/timer_dots_height"
+                        app:layout_constraintBottom_toBottomOf="@id/hoursSecond"
+                        app:layout_constraintEnd_toStartOf="@id/minutesFirst"
+                        app:layout_constraintStart_toEndOf="@id/hoursSecond"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/minutesFirst"
+                        style="@style/TimerNumber"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintEnd_toStartOf="@id/minutesSecond"
+                        app:layout_constraintStart_toEndOf="@id/timerDotsSecond"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="5" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/minutesSecond"
+                        style="@style/TimerNumber"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/minutesFirst"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="9" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TimerNumberSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:text="Minutes"
+                        app:layout_constraintEnd_toEndOf="@id/minutesSecond"
+                        app:layout_constraintStart_toStartOf="@id/minutesFirst"
+                        app:layout_constraintTop_toBottomOf="@id/minutesFirst" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/classesTitle"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/classes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/timer" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/classesTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_medium"
+            app:layout_constraintBottom_toBottomOf="@id/classesTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/classesTitle"
+            tools:text="6 classes today" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nextClass"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="@dimen/margin_medium"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/classesTitle"
+            tools:itemCount="1"
+            tools:listitem="@layout/next_class_item"
+            tools:orientation="horizontal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homeworkTitle"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/homework"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nextClass" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeworkTitle"
+            tools:listitem="@layout/homework_item"
+            tools:itemCount="1"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

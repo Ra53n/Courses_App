@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="220dp"
+    android:layout_height="160dp"
+    app:cardCornerRadius="@dimen/corner_radius_32"
+    android:layout_margin="@dimen/margin_medium">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/classTitle"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Literature" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/class_image_view_size"
+            android:layout_height="@dimen/class_image_view_size"
+            android:background="@drawable/class_image_background"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/classTitle"
+            app:layout_constraintTop_toTopOf="@id/classTitle"
+            tools:src="@drawable/bow_and_arrow" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/timeLeft"
+            style="@style/Text.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_xsmall"
+            android:drawableStart="@drawable/baseline_access_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/classTitle"
+            tools:text=" 5 days left" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/homework"
+            style="@style/Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintStart_toStartOf="@id/timeLeft"
+            app:layout_constraintTop_toBottomOf="@id/timeLeft"
+            tools:text="Read scenes 1.1-1.12 of \nThe Master and Margarita" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
