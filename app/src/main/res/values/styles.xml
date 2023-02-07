@@ -22,9 +22,13 @@
     <style name="Text.Title">
         <item name="android:textSize">18sp</item>
     </style>
-    
+
     <style name="Text.Caption">
         <item name="android:textColor">@color/grey_text</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CustomBottomNavItem" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="color">@color/green</item>
     </style>
 </resources>

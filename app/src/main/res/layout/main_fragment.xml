@@ -187,9 +187,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/nextClass"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_height="140dp"
             android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/classesTitle"
             tools:itemCount="1"
             tools:listitem="@layout/next_class_item"
@@ -207,11 +207,14 @@
             app:layout_constraintTop_toBottomOf="@id/nextClass" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeworks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeworkTitle"
-            tools:listitem="@layout/homework_item"
-            tools:itemCount="1"/>
+            tools:itemCount="1"
+            tools:listitem="@layout/homework_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

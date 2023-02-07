@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Courses App</string>
-    <string name="first_fragment_label">First Fragment</string>
 
     <string name="are_you_ready_for_exams">Are you ready for exams?</string>
     <string name="days">Days</string>
@@ -8,4 +7,10 @@
     <string name="classes">Classes</string>
     <string name="open_in">Open in  </string>
     <string name="homework">Homework</string>
+    <string name="days_left">%d days left</string>
+    <string name="duration">%s - %s</string>
+    <string name="classes_today">%d classes today</string>
+    <string name="exam_started">Exam started!</string>
+    <string name="favourites">Favourites</string>
+    <string name="home">Home</string>
 </resources>
